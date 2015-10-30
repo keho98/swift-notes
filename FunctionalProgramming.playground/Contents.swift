@@ -90,5 +90,15 @@ func map<T, U>(arr: [T], handler: T -> U) -> [U] {
     }
 }
 
+func filter(arr: [Int], handler: Int -> Bool) -> [Int] {
+    return arr.reduce([]) {
+        (var tempArr, val) -> [Int] in
+        if handler(val) {
+            tempArr.append(val)
+        }
+        return tempArr
+    }
+}
+
 map(numbers) { $0 * 3 }
 
